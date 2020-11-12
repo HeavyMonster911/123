@@ -1,0 +1,322 @@
+html {
+  width:100%;
+  height:100%;
+}
+body {
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+}
+
+.modal {
+  position: fixed;
+  height: 90%;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  visibility: hidden;
+  opacity:0;
+  -webkit-transition:opacity 0.4s linear;
+  -moz-transition:opacity 0.4s linear;
+  -ms-transition:opacity 0.4s linear;
+  -o-transition:opacity 0.4s linear;
+  transition:opacity 0.4s linear;
+}
+.modal.show {
+  visibility: visible;
+  opacity:1;
+}
+
+.valign-table {
+  display: table;
+  table-layout: fixed;
+}
+.valign-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#memory--app-container {
+  background: url(https://img5.goodfon.com/wallpaper/nbig/7/f6/tuchi-nebo-stikhiia.jpg);
+  width:100%;
+  height:90%;
+}
+
+.memory--menu-bar {
+  width:100%;
+  background-color: #222;
+  height:10%;
+  display:table;
+}
+
+.memory--menu-bar .inner {
+  display:table-cell;
+  vertical-align:middle;
+}
+.memory--menu-bar .left {
+  text-align: left;
+  float:left;
+  width:50%;
+}
+.memory--menu-bar .right {
+  text-align: right;
+  float:right;
+  width:50%;
+}
+.memory--app-name {
+  color:#ccc;
+  font-size:26px;
+  margin:0;
+  padding:1px 4px;
+  text-transform: uppercase;
+  font-family: "Courier New";
+  letter-spacing: 2px;
+}
+@media screen and (max-width: 480px) {
+  .memory--app-name {
+    font-size:16px;
+  }
+}
+
+#memory--settings-icon {
+  height: 24px;
+  display: block;
+  padding:4px 8px;
+  float: right;
+}
+
+#memory--end-game-modal .wrapper {
+  background-color: rgba(0, 0, 0, .86);
+  text-align: center;
+  color:#ccc;
+  padding:8px 0;
+}
+#memory--end-game-modal h2,
+#memory--end-game-modal h3 {
+  margin:0;
+  margin-bottom: 4px;
+}
+
+#memory--settings-modal {
+  background-color: rgba(0, 0, 0, .86);
+  z-index: 4;
+}
+#memory--settings-modal form {
+  min-width:240px;
+  width:50%;
+  margin:0 auto;
+  text-align: center;
+  color:#ccc;
+}
+
+.memory--settings-label {
+  margin:8px 0;
+}
+
+#memory--settings-grid,
+#memory--settings-reset {
+  width:100%;
+  margin-bottom:16px;
+  font-size:18px;
+  background:transparent;
+  color:grey;
+  height:50px;
+  text-align: center;
+}
+
+#memory--settings-grid option {
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+#memory--settings-reset {
+  border-radius:5px;
+  border:2px solid #ccc;
+  cursor: pointer;
+}
+
+#memory--cards {
+  margin:0 auto;
+  padding:0;
+  height:100%;
+  list-style-type: none;
+  list-style-image: none;
+  position:relative;
+}
+
+.flip-container {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  float:left;
+}
+
+
+.flip-container.clicked .front {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.flip-container.clicked .back {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.flipper {
+  width:90%;
+  height:90%;
+  margin:0% auto;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+  top:5%;
+  bottom:5%;
+}
+
+
+.front, .back {
+  width:100%;
+  height:100%;
+  display: block;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.front {
+
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 5%;
+  background-image: url(https://tattoo-stickers.ru/63011-thickbox_default/logotip-mstitelej-avengers.jpg);
+  background-position:50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+}
+
+.back {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  background-color: black;
+  border-radius: 5%;
+  background-position:50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.back.card-1 {
+  background-image: url(https://images6.fanpop.com/image/photos/41300000/Avengers-character-fan-art-the-avengers-41320509-736-680.jpg);
+}
+.back.card-2 {
+  background-image: url(https://pm1.narvii.com/6779/ddde5935e563f2a29c7a94b2c1c9eff01b7f2157v2_hq.jpg);
+}
+.back.card-3 {
+  background-image: url(https://pristor.ru/wp-content/uploads/2018/06/%D0%A7%D0%B5%D1%82%D0%BA%D0%B8%D0%B5-%D0%B8-%D0%BA%D1%80%D1%83%D1%82%D1%8B%D0%B5-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8-%D0%BD%D0%B0-%D1%82%D0%B5%D0%BB%D0%B5%D1%84%D0%BE%D0%BD-%D0%BF%D0%BE%D0%B4%D0%B1%D0%BE%D1%80%D0%BA%D0%B0-%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BE%D0%BA-3.jpg);
+}
+.back.card-4 {
+  background-image: url(https://i.pinimg.com/736x/cd/d5/a4/cdd5a42bb076eb3e747430c06da2513f.jpg);
+}
+.back.card-5 {
+  background-image: url(https://pm1.narvii.com/6812/c055299e0002c25baf8744735eaf29c94b3594a7v2_hq.jpg);
+}
+.back.card-6 {
+  background-image: url(https://pm1.narvii.com/6812/4f5d268d771ab4d6f0085953b7d50356cb44aea0v2_hq.jpg);
+}
+.back.card-7 {
+  background-image: url(https://i.pinimg.com/originals/79/71/cf/7971cfcd3a4f5b6bff6115d6e1229f06.jpg);
+}
+.back.card-8 {
+  background-image: url(https://i.pinimg.com/originals/d0/cd/ee/d0cdee53bea5239d43e92fab88f1e039.jpg);
+}
+.back.card-9 {
+  background-image: url(https://pm1.narvii.com/6933/c37c73315290de0d47e0079bf10461d25660a464r1-1024-1024v2_hq.jpg);
+}
+.back.card-10 {
+  background-image: url(https://www.meme-arsenal.com/memes/512b602dc5ee58aee91673da9be55247.jpg);
+}
+.back.card-11 {
+  background-image: url(https://cs10.pikabu.ru/post_img/big/2018/02/20/7/1519123678193314954.jpg);
+}
+.back.card-12 {
+  background-image: url(https://pm1.narvii.com/6743/acce524290310dfb64894881d4260f07610cbc19v2_hq.jpg);
+}
+.back.card-13 {
+  background-image: url(https://pm1.narvii.com/6781/d4a2119a722e330a18cfdce72e2960e97a6ec73dv2_hq.jpg);
+}
+.back.card-14 {
+  background-image: url(https://images6.fanpop.com/image/photos/41300000/Avengers-character-fan-art-the-avengers-41320502-1947-1920.jpg);
+}
+.back.card-15 {
+  background-image: url(https://pm1.narvii.com/6852/219f71cae42243a88cf89949ae2bb73b043c1068v2_hq.jpg);
+}
+.back.card-16 {
+  background-image: url(https://i.pinimg.com/originals/3b/3e/d0/3b3ed032fb3933dd1a0f3eb05a822e6d.jpg);
+}
+.back.card-17 {
+  background-image: url(https://i.redd.it/7bnzbw5ftxc41.png);
+}
+.back.card-18 {
+  background-image: url(https://i.redd.it/1z1i7aup9zn01.jpg);
+}
+.back.card-19 {
+  background-image: url(https://i.pinimg.com/originals/6d/e0/cf/6de0cf8fe3bac0cf985f966088a24a04.jpg);
+}
+.back.card-20 {
+  background-image: url(https://pbs.twimg.com/media/DVs9JBlV4AAH3Lj.jpg);
+}
+.back.card-21 {
+  background-image: url(https://pbs.twimg.com/media/DVemlslU8AEyCpK.jpg);
+}
+.back.card-22 {
+  background-image: url(https://i.pinimg.com/564x/1b/37/c4/1b37c4e01627f7fc64ee57d04d74481f.jpg);
+}
+.back.card-23 {
+  background-image: url(https://i.pinimg.com/564x/54/c6/d6/54c6d68aee451159c233d30c298e5e7d.jpg);
+}
+.back.card-24 {
+  background-image: url(https://i.pinimg.com/originals/d7/b8/89/d7b8899d514fcae38b751773dea105ad.jpg);
+}
+.back.card-25 {
+  background-image: url(https://i.pinimg.com/originals/87/15/64/871564e70898e6d04fdcaacafd983128.jpg);
+}
+.back.card-26 {
+  background-image: url(https://i.pinimg.com/originals/8a/a1/7e/8aa17e0b3705a20ba3aa3d6b672531ed.jpg);
+}
+.back.card-27 {
+  background-image: url(https://i.pinimg.com/originals/10/5d/ca/105dca379c430cd2d98180b9e946701b.jpg);
+}
+.back.card-28 {
+  background-image: url(https://i.pinimg.com/originals/17/b0/6e/17b06ed76f0044c0a13f39377e59edf4.jpg);
+}
